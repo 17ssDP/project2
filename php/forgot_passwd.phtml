@@ -1,0 +1,77 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Peng Deng
+ * Date: 2018/5/27
+ * Time: 14:42
+// */
+require_once("fns.php");
+try {
+    $password = reset_password($username);
+    notify_password($password, $username);
+    echo '您的新密码已经发送到您的邮箱';
+} catch (Exception $e) {
+    echo '您的密码无法更改，请稍后重试';
+}
+function reset_password($username) {
+    $new_password = get_random_word(6, 13);
+    if($new_password == false) {
+        //提供默认的密码
+        $new_password = "changeMe";
+    }
+    //在密码后加上介于0和999之间的数字
+    $rang_number = rand(0, 999);
+    $new_password .= $rang_number;
+    //将新密码存到数据库
+    $conn = db_connect();
+    $result = $conn->query("update users set password = '".$new_password."' where name = '".$username."'");
+    if(!$result) {
+        throw new Exception("无法改变密码");
+    } else {
+        //更改成功
+        return $new_password;
+    }
+}
+function get_random_word($min_length, $max_length) {
+    $word = '';
+    $dictionary = 'dictoakjf.txt.txt';
+    $fp = @fopen($dictionary, 'r');
+    if(!$fp) {
+        return false;
+    }
+    $size = filesize($dictionary);
+    $rand_location = rand(0, $size);
+    fseek($fp, $rand_location);
+    while ((strlen($word) < $min_length) || (strlen($word) > $max_length) || (strlen($word, "'"))){
+        if (feof($fp)) {
+            fseek($fp, 0);
+        }
+        $word = fgets($fp, 80);
+        $word = fgetc($fp, 80);
+    }
+    $word = trim($word);
+    return $word;
+    echo $word;
+    echo 'adkffjakd';
+}
+//将新密码以电子邮件方式发送给用户
+function notify_password($username, $password) {
+    $conn = db_connect();
+    $result = $conn->query("select email from users where name = '".$username."'");
+    if(!$result) {
+        throw new Exception("无法找到邮箱地址！");
+    } else if ($result->num_rows == 0){
+        throw new Exception("无法找到邮箱地址！");
+    } else {
+        $row = $result->fetch_object();
+        $email = $row->email;
+        $form = "Form dwswcj@outlook.com \r\n";
+        $mesg = "Your ArtStore password has been changed to ".$password."\r\n".
+            "Please change it next time you log in.\r\n";
+        if(mail($email, 'ArtStore 登录信息', $mesg, $form)) {
+            return true;
+        } else {
+            throw new Exception("无法发送邮件");
+        }
+    }
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Register Interface</title>
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/register.css">
+  <script type="text/javascript" src="../js/jquery-3.3.1.js">
+  </script>
+  <script type="text/javascript" src="../js/jquery.validate.min.js">
+  </script>
+  <script type="text/javascript" src="../js/register.js">
+  </script>
+</head>
+
+<body>
+  <hgroup>
+    <h1>Art Store</h1>
+    <h2>欢迎注册</h2>
+  </hgroup>
+  <div class="Register">
+    <form class="" id="signup" method="post" action="../php/newUser.php">
+      <input id="name" name="name" type="text" placeholder="用户名">
+        <div id="name-error"></div>
+      <br>
+      <input id="email" type="email" name="email" placeholder="邮箱">
+        <div id="email-error"></div>
+      <br>
+      <input id="password" name="password" type="password" placeholder="密码">
+        <div id="password-error"></div>
+      <br>
+      <input id="confirm_password" name="confirm_password" type="password" placeholder="确认密码">
+        <div id="confirm_password-error"></div>
+      <br>
+      <input id="phone" name="phone" placeholder="手机号">
+      <div id="phone-error"></div>
+      <br>
+      <input id="address" type="text" name="address" placeholder="地址">
+        <div id="address-error"></div>
+      <br>
+      <input type="button" name="button" value="注册">
+    </form>
+  </div>
+</body>
+
+</html>

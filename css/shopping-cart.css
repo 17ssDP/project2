@@ -1,0 +1,165 @@
+.nav-one {
+  padding: 0.5em;
+  background: black;
+  text-align: right;
+}
+
+li {
+  display: inline;
+  margin-right: 3em;
+  list-style: none;
+}
+
+li a {
+  color: white;
+  text-decoration: none;
+}
+
+h1 {
+  display: inline-block;
+  font-size: 2.5em;
+  font-family: sans-serif;
+  font-weight: 500;
+  margin: 0;
+}
+
+.search-box {
+  display: inline-block;
+  clear: both;
+  float: right;
+  margin-right: 5em;
+  margin-top: 0.5em;
+}
+
+.search-box input[type="text"] {
+  width: 300px;
+  height: 30px;
+  border: solid 1.5px #E91E63;
+  border-right: none;
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+  outline: none;
+  font-size: 17px;
+}
+
+.search-box input[type="submit"] {
+  vertical-align: bottom;
+  border: none;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+  font-family: sans-serif;
+  letter-spacing: 5px;
+  color: white;
+  background-color: #E91E63;
+  padding: 0.5em 0 0.5em 0;
+  width: 50px;
+  height: 35px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  outline: none;
+}
+
+.search-box input[type="submit"]:hover {
+  background-color: #FF4081;
+}
+
+.nav-two {
+  background-color: rgb(189, 200, 200);
+  padding: 1em;
+}
+
+.title {
+  margin: 1em;
+  vertical-align: middle;
+}
+
+.title img {
+  display: inline-block;
+  width: 160px;
+  height: 150px;
+  margin: 1em 0 0 1em;
+}
+
+h2 {
+  display: inline-block;
+  font-size: 35px;
+}
+
+section {
+  margin: 1em 2em;
+  padding: 1em;
+  border: 0.5em solid #e0e2dc;
+  background-color: rgb(224, 241, 244);
+}
+
+div[class*="good"] {
+  background-color: rgb(242, 249, 111);
+  border: 2px solid rgb(235, 244, 66);
+}
+
+.img img {
+  width: 11em;
+  height: 11em;
+}
+
+div[class*="good"]>div {
+  display: inline-block;
+  margin: 1em;
+}
+
+.details {
+  margin-bottom: 5em;
+}
+
+.details h3 {
+  font-size: 20px;
+  font-family: sans-serif;
+  margin-bottom: 1em;
+}
+
+.buttons p {
+  display: inline-block;
+  margin-right: 2em;
+  padding: 3px 6px;
+  background-color: rgb(85, 241, 20);
+}
+
+.buttons p:hover {
+  cursor: pointer;
+}
+
+.pay {
+  margin: 2em 2em 1em;
+  text-align: right;
+  cursor: pointer;
+}
+
+.pay a {
+  padding: 10px;
+  background-color: rgb(8, 213, 241);
+  text-decoration: none;
+}
+
+footer {
+  text-align: center;
+}
+
+footer li {
+  display: inline-block;
+  margin: 0;
+  padding: 0.5em;
+  width: 2.5em;
+  text-align: center;
+  border: 1px solid rgb(9, 238, 244);
+}
+
+footer ul :first-child {
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+}
+
+footer li a {
+  color: black;
+}

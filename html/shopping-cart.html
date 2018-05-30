@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Shopping-cart Interface</title>
+  <link rel="stylesheet" href="../css/font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/shopping-cart.css">
+  <link rel="stylesheet" href="../css/jquery-ui.min.css">
+  <script type="text/javascript" src="../js/personal.js"></script>
+  <script type="text/javascript" src="../js/jquery.min.js"></script>
+  <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+  <!-- <script type="text/javascript" src="../js/jquery-3.3.1.js"></script> -->
+  <script type="text/javascript" src="../js/shopping-cart.js">
+  </script>
+</head>
+
+<body>
+  <header>
+    <nav class="nav-one">
+      <ul>
+        <li><a href="personal.php"><i class="fa fa-user"></i> chenk</a></li>
+        <li><a href="Shopping-cart.html"><i class="fa fa-shopping-cart"></i> 购物车</a></li>
+        <li><a href="entrance.html"><i class="fa fa-sign-out"></i>登出</a></li>
+      </ul>
+    </nav>
+    <h1>Art Store</h1>
+    <div class="search-box">
+      <input type="text" name="" value=""><input type="submit" name="" value="搜索" onclick="javascript:window.location.href='search.html'">
+    </div>
+    <!--指针变小手-->
+    <nav class="nav-two">
+      <ul>
+        <li><a href="entrance.html">首页</a></li>
+        <li><a href="search.html">搜素</a></li>
+        <li><a href="detail.html">详情</a></li>
+        <li><a href="#">发布艺术品</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <div class="title">
+      <img src="../images/photo/shopping-cart.jpg" alt="shopping-cart">
+      <h2>购物车</h2>
+    </div>
+    <section>
+      <div class="good-one">
+        <div class="img">
+          <img src="../images/images/works/small/001140.jpg" alt="good">
+        </div>
+        <div>
+          <div class="details">
+            <h3 class="name">Still Life with bowl and Fruit</h3>
+            <p class="author">Pablo Picasso</p>
+          </div>
+          <div class="buttons">
+            <p><i class="fa fa-star"></i>价格：$170.0000</p>
+            <p class="delete"><i class="fa fa-sign-out"></i>移出购物车</p>
+          </div>
+        </div>
+      </div>
+      <div class="good-one">
+        <div class="img">
+          <img src="../images/images/works/small/001140.jpg" alt="good">
+        </div>
+        <div>
+          <div class="details">
+            <h3 class="name">Still Life with bowl and Fruit</h3>
+            <p class="author">Pablo Picasso</p>
+          </div>
+          <div class="buttons">
+            <p><i class="fa fa-star"></i>价格：$170.0000</p>
+            <p class="delete"><i class="fa fa-sign-out"></i>移出购物车</p>
+          </div>
+        </div>
+      </div>
+      <div class="good-one">
+        <div class="img">
+          <img src="../images/images/works/small/001140.jpg" alt="good">
+        </div>
+        <div>
+          <div class="details">
+            <h3 class="name">Still Life with bowl and Fruit</h3>
+            <p class="author">Pablo Picasso</p>
+          </div>
+          <div class="buttons">
+            <p><i class="fa fa-star"></i>价格：$170.0000</p>
+            <p class="delete"><i class="fa fa-sign-out"></i>移出购物车</p>
+          </div>
+        </div>
+      </div>
+      <div class="pay">
+        <a id="pay-bt"><i class="fa fa-mail-forward">结款：$510.000</i></a>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <ul>
+      <li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
+      <li><a href="#">1</a></li>
+      <li><a href="#">2</a></li>
+      <li><a href="#">3</a></li>
+      <li><a href="#">4</a></li>
+      <li><a href="#">5</a></li>
+      <li><a href="#">6</a></li>
+      <li><a href="#">7</a></li>
+      <li><a href="#">8</a></li>
+      <li><a href="#">9</a></li>
+      <li><a href="#">10</a></li>
+      <li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
+    </ul>
+  </footer>
+  <div id="new-todo" title="删除成功">
+  </div>
+  <div id="pay" title="付款成功">
+  </div>
+</body>
+
+</html>

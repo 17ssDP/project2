@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Landing Interface</title>
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/land.css">
+  <script type="text/javascript" src="../js/jquery-3.3.1.js">
+  </script>
+  <script type="text/javascript" src="../js/jquery.validate.min.js"></script>
+  <!--<script type="text/javascript" src="../js/land.js">-->
+  <!--</script>-->
+  <script>
+      $(document).ready(function() {
+          $('#username').on('focusout', function () {
+              if($('#username').val() == "") {
+                  $('#name-error').html('<p>请输入用户名</p>');
+              }
+          });
+          $('#username').on('focusin', function () {
+              $('#name-error').html('');
+          });
+          $('#password').on('focusout', function () {
+              let password = $('#password').val();
+              let reg = /^\w{6,12}$/;
+              if (password == "") {
+                  $('#password-error').html('<p>请输入密码</p>');
+              } else if (!reg.test(password)) {
+                  $('#password-error').html('<p>密码必须为6-12位的数字、字母或下划线</p>');
+              }
+          });
+          $('#password').on('focusin', function () {
+              $('#password-error').html('');
+          });
+          $('input[type="button"]').on('click', function () {
+              //检查是否输入所有信息
+              let allFilled = true;
+              if($('#username').val() == "") {
+                  $('#name-error').html('<p>请输入用户名</p>');
+                  allFilled = false;
+              }
+              if ($('#password').val() == "") {
+                  $('#password-error').html('<p>请输入密码</p>');
+                  allFilled = false;
+              }
+              //检查每个输入框的输入内容是否有问题
+              let noError = $('#name-error').html() == "" && $('#password-error').html() == "";
+              //登录
+              if (allFilled && noError) {
+                  $('form').submit();
+              }
+          });
+      });
+  </script>
+</head>
+
+<body>
+  <header>
+    <h1>Art Store</h1>
+    <h2>欢迎登陆</h2>
+  </header>
+  <div class="img">
+  </div>
+  <div class="">
+    <div class="IDCheckLoginInputCon">
+      <h3>欢迎登录Art Store</h3>
+      <form class="" id="signup" action="../php/login.php" method="post">
+        <input id="username" name="username" type="text" placeholder="邮箱/用户名" class="required" title="请输入用户名">
+        <div id="name-error"></div>
+        <br>
+        <input id="password" name="password" type="password" placeholder="密码">
+        <div id="password-error"></div>
+        <br>
+        <input type="button" name="button" id="button" value="登录">
+        <!-- <input id="idcheckloginbtn" type="button" value="登陆"> -->
+      </form>
+    </div>
+  </div>
+  <footer>
+
+  </footer>
+</body>
+
+</html>

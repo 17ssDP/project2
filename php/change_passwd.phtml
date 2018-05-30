@@ -1,0 +1,23 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Peng Deng
+ * Date: 2018/5/27
+ * Time: 13:50
+ */
+session_start();
+$conn = db_connect();
+$username = "master";
+$new_password = "password";
+$result = $conn->query("update users set password = shal('".$new_password."') where name = '".$username."'");
+if(!$result) {
+    throw  new Exception('密码不能被更改');
+}
+function db_connect() {
+    $result = new mysqli('localhost', 'root', 'dadk15dd&ka', 'users');
+    if(!$result) {
+        throw new Exception('无法连接数据库服务器');
+    } else {
+        return $result;
+    }
+}
