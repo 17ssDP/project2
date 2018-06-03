@@ -16,7 +16,7 @@ require_once("fns.php");
 $search = trim($_POST['search']);
 $name = "Pablo Picasso";
 //连接数据库
-$db = db_connect("artworks");
+$db = db_connect();
 //查询数据库
 $query = "SELECT artworkID, title, price FROM artworks WHERE artist = ?";
 $stmt = $db->prepare($query);

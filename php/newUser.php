@@ -37,7 +37,7 @@ $balance = 0;
 //$db->close();
 register($username, $email, $password, $phone, $address, $balance);
 function register($username, $email, $password, $tel, $address, $balance) {
-    $conn = db_connect("users");
+    $conn = db_connect();
     //插入数据库
     $password = password_hash(".$password.", PASSWORD_DEFAULT);
     $result = $conn->query("insert into users values ('NULL', '".$username."', '".$email."', '".$password."', '".$tel."', '".$address."', '".$balance."')");

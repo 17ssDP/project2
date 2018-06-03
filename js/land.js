@@ -160,8 +160,18 @@ let BoxInit = {
       let noError = $('#name-error').html() == "" && $('#password-error').html() == "" && $('#code-error').html() == "";
       //登录
       if (allFilled && noError) {
-          this.closes();
-          $('form').submit();
+          //检查用户是否存在或密码是否正确
+          $.post('../php/login_check.php', {
+              'username': $('#username').val(),
+              'password': $('#password').val()
+          }, function(result) {
+              if(!result) {
+                  $('#name-error').html('<p>用户不存在或密码错误</p>');
+              } else {
+                  this.closes();
+                  $('form').submit();
+              }
+          });
       }
   },
   /**

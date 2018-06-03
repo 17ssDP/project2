@@ -5,12 +5,7 @@
  * Date: 2018/5/29
  * Time: 17:14
  */
-header("Content-type: application/json");
-$try = true;
-if (true) {
-    print json_encode([
-        'success' => true,
-        'message' => $try,
-    ]);
-}
+require_once ('html_header.php');
+get_html_header('denepng');
+get_html_footer();
 ?>
