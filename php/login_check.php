@@ -6,8 +6,6 @@
  * Time: 16:00
  */
 require_once("fns.php");
-//启动会话
-session_start();
 //获取登录信息
 $tempName = trim($_POST['username']);
 $tempPassword = trim($_POST['password']);
@@ -33,8 +31,12 @@ if (preg_match($reg, $tempName)) {
 }
 //注册会话变量
 if ($result->num_rows) {
-//    $_SESSION['vaild_user'] = $userName;
-//    echo "登录成功! Hello $userName";
     echo $result->num_rows > 0;
+    if($result->num_rows > 0) {
+        $_SESSION['userName'] = $userName;
+        echo true;
+    } else {
+        echo false;
+    }
 }
 ?>

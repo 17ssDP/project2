@@ -1,108 +1,93 @@
-header {
-  padding: 3em;
+.title h3 {
+float: left;
+margin-left: 20px;
+font-size: 30px;
 }
 
-h1 {
-  display: inline-block;
-  margin-left: 2em;
-  margin-right: 0.5em;
-  font-size: 5em;
-  font-family: 'Times New Roman', serif;
+.title h4 {
+float: right;
+font-size: 20px;
+margin-right: 10px;
+margin-top: 5px;
+color: #999999
 }
 
-h2 {
-  display: inline-block;
-  font-size: 2em;
-  font-family: serif;
+.title h4:hover {
+color: #444444;
+cursor: pointer
 }
 
-div.img {
-  height: 1em;
-  background-color: rgb(65, 185, 207)
+.title:hover {
+  cursor: move;
 }
 
-.IDCheckLoginInputCon {
-  width: 30em;
-  height: 30em;
-  float: right;
-  margin-right: 10em;
-  background-color: rgba(193, 205, 182, 0.04);
-  border: solid rgb(148, 7, 36) 0.1em;
+.content input {
+width: 400px;
+height: 50px;
+margin-top: 2em;
+border: 0.1em solid rgb(221, 219, 212);
+font-size: 20px;
+color: rgb(144, 152, 151);
+outline: none;
 }
 
-h3 {
-  margin: 1em 1em;
-  font-size: 2em;
-  font-family: sans-serif;
-  font-weight: 500;
+.test>div {
+display: inline-block;
+margin-right: 90px;
 }
 
-form {
-  text-align: right;
-  margin-right: 10%
+.test input {
+display: inline-block;
+width: 150px;
+height: 40px;
+margin-top: 2em;
+border: 0.1em solid rgb(221, 219, 212);
+font-size: 20px;
+color: rgb(144, 152, 151);
+outline: none;
 }
 
-/**
- * [width description]
- * @type {[type]}
- * em是一个相对单位，输入框的大小是相对于input中字体的大小，而用户输入的字体大小
- * 和input中定义的字体大小相同，placeholder继承了input中的字体大小,但颜色
- */
-
-input {
-  width: 400px;
-  height: 40px;
-  margin-top: 2em;
-  border: 0.1em solid rgb(221, 219, 212);
-  font-size: 20px;
-  color: rgb(144, 152, 151);
-  outline: none;
+.content input[type="button"] {
+border: none;
+border-radius: 7px;
+text-align: center;
+font-weight: bold;
+font-size: 25px;
+font-family: sans-serif;
+letter-spacing: 5px;
+color: white;
+background-color: #E91E63;
+padding: 0.5em 0 0.5em 0;
+margin-top: 1.7em;
+width: 400px;
+height: 50px;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
 }
 
-/* input:focus {
-  border: 0.1em solid rgb(221, 219, 212);
-} */
-
-input[type="button"] {
-  border: none;
-  border-radius: 7px;
-  text-align: center;
-  font-weight: bold;
-  font-size: 25px;
-  font-family: sans-serif;
-  letter-spacing: 5px;
-  color: white;
-  background-color: #E91E63;
-  padding: 0.5em 0 0.5em 0;
-  margin-top: 1.7em;
-  width: 400px;
-  height: 50px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+.content input[type="button"]:focus {
+background-color: #FF4081;
 }
 
-input[type="button"]:focus {
-  background-color: #FF4081;
-}
-
-input[type="button"]:hover {
-  cursor: pointer;
-}
-
-#signup label.error {
-  color: #F00;
-  font-weight: bold;
-  display: block;
-  margin-left: 215px;
+.content input[type="button"]:hover {
+cursor: pointer;
 }
 
 #signup input.error {
-  background: #FFa9B8;
-  border: 1px solid red;
+background: #FFa9B8;
+border: 1px solid red;
 }
 
-#name-error p, #password-error p {
-  color: #F00;
-  font-weight: bold;
-  display: block;
-  margin-left: 215px;
+#name-error, #password-error {
+height: 30px;
+}
+
+.test {
+height: 90px;
+}
+
+#name-error p, #password-error p, #code-error p {
+color: #F00;
+font-weight: bold;
+display: block;
+margin-left: 200px;
 }

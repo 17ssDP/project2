@@ -3,14 +3,16 @@
   background: black;
   text-align: right;
 }
-
-li {
+a:hover{
+  color: rgb(254, 254, 254);
+}
+header li {
   display: inline;
-  margin-right: 3em;
+  margin-right: 2.3em;
   list-style: none;
 }
 
-li a {
+header li a {
   color: white;
   text-decoration: none;
 }
@@ -27,13 +29,13 @@ h1 {
   display: inline-block;
   clear: both;
   float: right;
-  margin-right: 5em;
+  /*margin-right: 5em;*/
   margin-top: 0.5em;
 }
 
 .search-box input[type="text"] {
   width: 300px;
-  height: 30px;
+  height: 35px;
   border: solid 1.5px #E91E63;
   border-right: none;
   border-top-left-radius: 7px;
@@ -67,9 +69,8 @@ h1 {
 
 .nav-two {
   background-color: rgb(189, 200, 200);
-  padding: 1em;
+  /*padding: 1em;*/
 }
-
 .title {
   margin: 1em;
   vertical-align: middle;
@@ -110,20 +111,33 @@ div[class*="good"]>div {
 }
 
 .details {
-  margin-bottom: 5em;
+  margin-bottom: 3em;
 }
 
 .details h3 {
-  font-size: 20px;
+  font-size: 25px;
   font-family: sans-serif;
-  margin-bottom: 1em;
+  margin-bottom: 0.5em;
+}
+.details h4 {
+  font-size: 20px;
+  margin-bottom: 0.5em;
+}
+.details p {
+  margin: 1em;
 }
 
-.buttons p {
-  display: inline-block;
-  margin-right: 2em;
-  padding: 3px 6px;
-  background-color: rgb(85, 241, 20);
+.good-one button {
+  border: none;
+  text-align: center;
+  font-size: 15px;
+  font-family: sans-serif;
+  color: white;
+  background-color: #E91E63;
+  padding: 0.3em;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  outline: rgba(0, 0, 0, 0.4);
+  margin-right: 1em;
 }
 
 .buttons p:hover {

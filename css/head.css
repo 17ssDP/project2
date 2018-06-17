@@ -1,0 +1,86 @@
+.nav-one {
+    padding: 0.5em;
+    background: black;
+    text-align: right;
+}
+.nav-one a:hover{
+    color: rgb(254, 254, 254);
+}
+.nav-two a:hover{
+    color: rgb(254, 254, 254);
+}
+header li {
+    display: inline;
+    margin-right: 2.3em;
+    list-style: none;
+}
+
+header li a {
+    color: white;
+    text-decoration: none;
+    outline: none;
+}
+
+header h1 {
+    display: inline-block;
+    font-size: 2.5em;
+    font-family: sans-serif;
+    font-weight: 500;
+    margin: 0;
+}
+
+.search-box {
+    display: inline-block;
+    clear: both;
+    float: right;
+    /*margin-right: 5em;*/
+    margin-top: 0.5em;
+}
+
+.search-box input[type="text"] {
+    width: 300px;
+    height: 35px;
+    border: solid 1.5px #E91E63;
+    border-right: none;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+    outline: none;
+    /*font-size: 17px;*/
+}
+
+.search-box input[type="submit"] {
+    vertical-align: bottom;
+    border: none;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+    text-align: center;
+    font-weight: bold;
+    /*font-size: 15px;*/
+    font-family: sans-serif;
+    letter-spacing: 5px;
+    color: white;
+    background-color: #E91E63;
+    padding: 0.5em 0 0.5em 0;
+    width: 50px;
+    height: 35px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+    outline: none;
+}
+
+.search-box input[type="submit"]:hover {
+    background-color: #FF4081;
+}
+
+.nav-two {
+    background-color: rgb(189, 200, 200);
+}
+.footer {
+    margin-left: 2em;
+}
+.footer a{
+    color: rgb(211, 194, 20);
+    text-decoration: none;
+}
+.footer a:focus{
+    color: rgb(211, 194, 20);
+}

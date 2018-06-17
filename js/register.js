@@ -1,4 +1,7 @@
 $(document).ready(function () {
+    // alert(window.location.href);
+    $('body').css("background-image", "url(../resources/img/44.jpg)");
+    $('body').css("background-size", "100%");
     $('#name').on('focusout', function () {
         let userName = $(event.target);
         if(userName.val() == "") {
@@ -21,11 +24,11 @@ $(document).ready(function () {
     });
     $('#password').on('focusout', function () {
         let password = $('#password').val();
-        let reg = /^\w{6,12}$/;
+        let reg = /^(?![0-9]*$)[a-zA-Z0-9]{6,12}$/;
         if (password == "") {
             $('#password-error').html('<p>请输入密码</p>');
         } else if (!reg.test(password)) {
-            $('#password-error').html('<p>密码必须为6-12位的数字、字母或下划线</p>');
+            $('#password-error').html('<p>密码必须为6-12位的数字和字母</p>');
         }
     });
     $('#password').on('focusin', function () {
@@ -91,12 +94,26 @@ $(document).ready(function () {
         //登录
         if (allFilled && noError) {
             //将表单的内容提交
-            let checkName = $('#name').serialize();
-            $.get('../php/user_exist.php', checkName, function (exist) {
-                if(exist) {
+            // let checkName = $('#name').serialize();
+            // $.get('../php/user_exist.php', checkName, function (exist) {
+            //     if(exist) {
+            //         $('#name-error').html('<p>用户名已经存在</p>');
+            //     } else {
+            //         $('form').submit();
+            //     }
+            // });
+            $.post('../php/newUser.php', {
+                'userName': $('#name').val(),
+                'password': $('#password').val(),
+                'email': $('#email').val(),
+                'phone': $('#phone').val(),
+                'address': $('#address').val()
+            }, function(result) {
+                if (!result) {
                     $('#name-error').html('<p>用户名已经存在</p>');
                 } else {
-                    $('form').submit();
+                    $("#information").modal('show');
+                    $('#signup').submit();
                 }
             });
         }

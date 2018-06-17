@@ -2,208 +2,30 @@
   font-family: "jennasue-webfont";
   src: url('../webfonts/jennasue-webfont.woff');
 }
-
-header {
-  /* background-image: url(../images/images/works/average/095010.jpg);
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-size: 100% 100%; */
-  /* width: 100%;
-  height: 30em; */
-  margin: 0 auto;
-  height: 500px;
-  position: relative;
-  width: 100%;
-  height: 500px;
-  text-align: center;
-}
-
-ul {
-  margin: 0px;
-  padding: 0px;
-}
-
-ul li {
-  float: left;
-  list-style: none;
-  margin: 0px;
-  padding: 0px;
-}
-
-a {
-  margin: 0px;
-  padding: 0px;
-}
-
-#imgs {
-  width: 1525px;
-  height: 100%;
-  overflow: hidden;
-  float: left;
-  position: relative;
-}
-
-#imgs img {
-  width: 1525px;
-  height: 500px;
-}
-
-#imgs ul {
-  position: absolute;
-  z-index: 1;
-  width: 9150px;
-  height: 400px;
-  left: -1525px;
-}
-
-#nav {
-  width: 100px;
-  height: 20px;
-  float: left;
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
-  z-index: 5;
-}
-
-#nav ul li a {
-  width: 20px;
-  height: 20px;
-  line-height: 20px;
-  display: inline-block;
-  background: #FFF;
-  border-radius: 10px;
-  margin-right: 5px;
-  text-align: center;
-  font-size: 12px;
-}
-
-#preous, #next {
-  width: 100px;
-  background: rgba(180, 184, 174, 0.04);
-  font-size: 20px;
-  font-weight: 900;
-  text-align: center;
-  height: 80px;
-  line-height: 80px;
-  position: absolute;
-  top: 45%;
-  color: #FFF;
-  z-index: 3;
-}
-
-#preous, #next:hover {
-  cursor: pointer;
-}
-
-#preous {
-  left: 0px;
-}
-
-#next {
-  right: 0px;
-}
-
-#nav ul li a.current {
-  background: red;
-  color: #FFF;
-}
-
-#nav ul li a.hidden {
-  background: #FFF;
-  color: #000;
-}
-
-#nav ul li a:hover {
-  cursor: pointer;
-}
-
-#imgs {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  float: left;
-  position: relative;
-  text-align: center;
-  top: 0;
-  padding: 0;
-}
-
-#imgs img {
-  width: 1525px;
-  height: 500px;
-  margin: 0;
-}
-
-hgroup {
-  /* display: inline-block; */
-  z-index: 1;
-  text-align: center;
-  position: absolute;
-  top: 0;
-  margin-left: 0;
-}
-
 h1 {
-  display: inline-block;
   font-family: "jennasue-webfont";
   font-weight: normal;
   font-size: 4em;
   color: white;
-  margin-left: 1.5em;
+  /*margin-left: 1.5em;*/
 }
-
-hgroup h2 {
-  display: inline-block;
-  color: white;
-}
-
-nav {
-  z-index: 1;
-  text-align: center;
-  position: absolute;
-  top: 0;
-  margin-left: 70%;
-}
-
-nav ul {
-  list-style-type: none;
-  margin-right: 5em;
-  margin-top: 2em;
-}
-
-nav li {
-  display: inline;
+nav p {
+  vertical-align: center;
+  color: rgb(255, 246, 248);
+  font-family: '微软雅黑','ColaborateLightRegular', Arial, sans-serif;
 }
 
 nav ul li a {
-  color: #FFF;
+  color: rgb(249, 249, 249);
   border-bottom: none;
-  padding-left: 2em;
   text-decoration: none;
-}
-
-.learn_more {
-  z-index: 3;
-  text-align: center;
-  position: absolute;
-  top: 40%;
-  margin-left: 40%;
-}
-
-.learn_more h2 {
-  font-size: 30px;
-  color: white;
-  margin: 1em;
-}
-
-.learn_more p {
+  margin-left: 2em;
+  vertical-align: baseline;
   font-size: 20px;
-  color: white;
-  margin: 1em;
+  outline: none;
 }
 
-.learn_more input {
+.carousel-caption input {
   width: 130px;
   height: 30px;
   font-size: 20px;
@@ -212,9 +34,10 @@ nav ul li a {
   border: 2px solid rgb(205, 236, 232);
   background: none;
   outline-color: rgb(239, 242, 237);
+  margin-bottom: 5em;
 }
 
-.learn_more input:hover {
+.carousel-caption input:hover {
   cursor: pointer;
   border: 2px solid rgb(166, 237, 228);
 }
@@ -225,15 +48,9 @@ section {
   text-align: center;
 }
 
-section div {
-  display: inline-block;
-  width: 17em;
-  margin: 2em;
-}
-
 div[class*="intro"] {
   font-size: 20px;
-  font-family: 'Times New Roman' sans-serif;
+  font-family: "Times New Roman", sans-serif;
   font-weight: 500;
   text-align: center;
 }
@@ -242,19 +59,8 @@ div[class*="intro"] img {
   width: 6em;
   height: 6em;
   margin: 0.5em;
-  border: 2px solid rgba(13, 226, 244, 0.88);
+  /*border: 2px solid rgba(13, 226, 244, 0.88);*/
   border-radius: 100px;
-}
-
-div[class*="intro"] img:hover {
-  width: 6.5em;
-  height: 6.5em;
-  margin: 0;
-}
-
-div[class*="intro"] p {
-  width: 17em;
-  height: 15em;
 }
 
 div[class*="intro"] h2 {
@@ -263,22 +69,16 @@ div[class*="intro"] h2 {
 
 div[class*="intro"] a[role="button"] {
   width: 6em;
-  height: 20px;
+  height: 37px;
   display: inline-block;
   background-color: rgb(14, 200, 240);
   font-size: 20px;
-  padding: 0.5em;
+  padding: 0.2em;
   margin-top: 0;
   text-decoration: none;
   color: white;
   border: solid rgb(14, 200, 240);
   border-radius: 7px;
-}
-
-div[class*="intro"] a[role="button"]:hover {
-  background-color: white;
-  color: rgb(14, 200, 240);
-  border: solid rgb(14, 200, 240);
 }
 
 footer {
@@ -324,103 +124,14 @@ li a:hover {
   overflow: hidden;
 }
 
-.title:hover {
-  cursor: move;
-}
-
-.title h3 {
-  float: left;
-  margin-left: 20px;
-  font-size: 30px;
-}
-
-.title h4 {
-  float: right;
-  margin-right: 10px;
-  margin-top: 5px;
-  color: #999999
-}
-
-.title h4:hover {
-  color: #444444;
-  cursor: pointer
-}
-
 .box_content .content {
   margin: 20px 20px 10px 20px;
   overflow: hidden;
 }
 
-input {
-  width: 400px;
-  height: 40px;
-  margin-top: 2em;
-  border: 0.1em solid rgb(221, 219, 212);
-  font-size: 20px;
-  color: rgb(144, 152, 151);
-  outline: none;
+img {
+  height: 40em;
 }
-
-.test>div {
-  display: inline-block;
-  margin-right: 90px;
-}
-
-.test input {
-  display: inline-block;
-  width: 150px;
-  height: 40px;
-  margin-top: 2em;
-  border: 0.1em solid rgb(221, 219, 212);
-  font-size: 20px;
-  color: rgb(144, 152, 151);
-  outline: none;
-}
-
-/* input:focus {
-  border: 0.1em solid rgb(221, 219, 212);
-} */
-
-form input[type="button"] {
-  border: none;
-  border-radius: 7px;
-  text-align: center;
-  font-weight: bold;
-  font-size: 25px;
-  font-family: sans-serif;
-  letter-spacing: 5px;
-  color: white;
-  background-color: #E91E63;
-  padding: 0.5em 0 0.5em 0;
-  margin-top: 1.7em;
-  width: 400px;
-  height: 50px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
-}
-
-form input[type="button"]:focus {
-  background-color: #FF4081;
-}
-
-form input[type="button"]:hover {
-  cursor: pointer;
-}
-
-#signup label.error {
-  color: #F00;
-  font-weight: bold;
-  display: block;
-  margin-left: 215px;
-}
-
-#signup input.error {
-  background: #FFa9B8;
-  border: 1px solid red;
-}
-
-#name-error p, #password-error p, #code-error p {
-  color: #F00;
-  font-weight: bold;
-  display: block;
-  margin-left: 200px;
+nav {
+  background-color: rgba(41, 30, 33, 0.91);
 }

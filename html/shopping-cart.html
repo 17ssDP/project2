@@ -4,41 +4,43 @@
 <head>
   <meta charset="utf-8">
   <title>Shopping-cart Interface</title>
+  <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="../css/font-awesome-4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="../css/reset.css">
   <link rel="stylesheet" href="../css/shopping-cart.css">
   <link rel="stylesheet" href="../css/jquery-ui.min.css">
   <script type="text/javascript" src="../js/personal.js"></script>
-  <script type="text/javascript" src="../js/jquery.min.js"></script>
   <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
-  <!-- <script type="text/javascript" src="../js/jquery-3.3.1.js"></script> -->
+   <script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
   <script type="text/javascript" src="../js/shopping-cart.js">
   </script>
 </head>
 
 <body>
-  <header>
-    <nav class="nav-one">
-      <ul>
-        <li><a href="personal.php"><i class="fa fa-user"></i> chenk</a></li>
-        <li><a href="Shopping-cart.html"><i class="fa fa-shopping-cart"></i> 购物车</a></li>
-        <li><a href="entrance.html"><i class="fa fa-sign-out"></i>登出</a></li>
-      </ul>
+<header class="container-fluid">
+    <nav class="nav-one row">
+        <ul class="nav offset-md-9 row">
+            <li class="nav-item"><a class="nav-link" href="../php/personal.php"><i class="fa fa-user"></i> chenk</a></li>
+            <li class="nav-item"><a class="nav-link" href="Shopping-cart.html"><i class="fa fa-shopping-cart"></i> 购物车</a></li>
+            <li class="nav-item"><a class="nav-link" href="entrance.html"><i class="fa fa-sign-out"></i> 登出</a></li>
+        </ul>
     </nav>
-    <h1>Art Store</h1>
-    <div class="search-box">
-      <input type="text" name="" value=""><input type="submit" name="" value="搜索" onclick="javascript:window.location.href='search.html'">
+    <div class="row">
+        <h1 class="col-md-8">Art Store</h1>
+        <div class="search-box form-group col-md-4">
+            <input class="col-md-8" type="text" name="" value=""><input class="col-md-4" type="submit" name="" value="搜索" onclick="javascript:window.location.href='search.html'">
+        </div>
     </div>
     <!--指针变小手-->
-    <nav class="nav-two">
-      <ul>
-        <li><a href="entrance.html">首页</a></li>
-        <li><a href="search.html">搜素</a></li>
-        <li><a href="detail.html">详情</a></li>
-        <li><a href="#">发布艺术品</a></li>
-      </ul>
+    <nav class="nav-two row">
+        <ul class="nav">
+            <li class="nav-item"><a class="nav-link" href="#">首页</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">搜素</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">详情</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">发布艺术品</a></li>
+        </ul>
     </nav>
-  </header>
+</header>
   <main>
     <div class="title">
       <img src="../images/photo/shopping-cart.jpg" alt="shopping-cart">
@@ -115,6 +117,9 @@
   </div>
   <div id="pay" title="付款成功">
   </div>
+  <!--<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+  <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 
 </html>

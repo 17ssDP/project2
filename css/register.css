@@ -16,12 +16,12 @@ h2 {
   font-family: serif;
 }
 
-div.Register {
-  width: 500px;
-  margin-left: 200px;
-  padding: 25px;
-  border: solid rgb(205, 73, 27) 0.1em;
-}
+/*div.Register {*/
+  /*width: 500px;*/
+  /*margin-left: 200px;*/
+  /*padding: 25px;*/
+  /*border: solid rgb(205, 73, 27) 0.1em;*/
+/*}*/
 
 /**
  * [margin description]
@@ -33,17 +33,17 @@ div.Register {
 
 input {
   margin: 1em;
-  width: 350px;
-  height: 40px;
+  width: 500px;
+  height: 50px;
   outline: none;
   font-family: sans-serif;
-  font-size: 20px;
+  font-size: 50px;
   font-weight: 400;
-  border: 0.1em solid rgb(221, 219, 212);
+  border: 0.1em solid rgb(221, 29, 55);
 }
 
 input:focus {
-  /* border: solid rgba(223, 208, 0, 0.84) */
+   border: solid rgba(223, 208, 0, 0.84)
 }
 
 input[type="button"] {
@@ -58,8 +58,8 @@ input[type="button"] {
   background-color: #E91E63;
   padding: 0.3em 0 0.3em 0;
   margin-top: 1.3em;
-  width: 350px;
-  height: 45px;
+  /*width: 350px;*/
+  /*height: 45px;*/
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
   cursor: pointer;
 }
@@ -89,3 +89,6 @@ p {
     display: block;
     margin-left: 215px;
 }
+ .Register p {
+   height: 10px;
+ }

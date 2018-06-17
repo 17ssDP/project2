@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>details</title>
+  <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/detail.css">
+  <link rel="stylesheet" href="../css/lightbox.css">
+  <link rel="stylesheet" href="../css/jquery-ui.min.css">
+  <script type="text/javascript" src="../js/jquery.min.js"></script>
+  <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="../js/image-style1.js"></script>
+  <script type="text/javascript" src="../js/detail.js"></script>
+  <script type="text/javascript" src="../js/todo.js"></script>
+  <script type="text/javascript">
+  </script>
+</head>
+
+<body>
+  <header class="container-fluid">
+      <nav class="nav-one row">
+          <ul class="nav offset-md-9 row">
+              <li class="nav-item"><a class="nav-link" href="../php/personal.php"><i class="fa fa-user"></i> chenk</a></li>
+              <li class="nav-item"><a class="nav-link" href="Shopping-cart.html"><i class="fa fa-shopping-cart"></i> 购物车</a></li>
+              <li class="nav-item"><a class="nav-link" href="entrance.html"><i class="fa fa-sign-out"></i> 登出</a></li>
+          </ul>
+      </nav>
+      <div class="row">
+          <h1 class="col-md-8">Art Store</h1>
+          <div class="search-box form-group col-md-4">
+            <input class="col-md-8" type="text" name="" value=""><input class="col-md-4" type="submit" name="" value="搜索" onclick="javascript:window.location.href='search.html'">
+          </div>
+      </div>
+    <!--指针变小手-->
+    <nav class="nav-two row">
+      <ul class="nav">
+        <li class="nav-item"><a class="nav-link" href="entrance.html">首页</a></li>
+        <li class="nav-item"><a class="nav-link" href="search.html">搜素</a></li>
+        <li class="nav-item"><a class="nav-link" href="detail.html">详情</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">发布艺术品</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class="">
+    <div class="good-details container-fluid">
+      <div class="row">
+        <h2 class="col-md-12">Mother and Child(Olga and Son)</h2>
+        <p class="col-md-12">By <a href="search.html" class="author">PabloPicasso</a></p>
+      </div>
+      <div class="row">
+        <div class="col-md-3 good" id="gallery">
+          <a href="../images/images/works/large/001020.jpg"><img class="img-fluid" src="../images/images/works/average/001020.jpg" alt="good"></a>
+        </div>
+        <div class="col-md-6 details">
+          <p>This work is amazing but there is no introduction for itThis work is amazing but there is no introduction for itThis work is amazing but there is no introduction for itThis work is amazing but there is no introduction for itThis work is amazing but there is no introduction for it</p>
+          <p class="text-danger">price:<span>100.0000</span></p>
+          <a href="#" data-toggle="collapse">
+            <span class="badge add-wish font-weight-normal "><i class="fa fa-heart-o"></i>Add to Wish list</span>
+          </a>
+          <a href="#" data-toggle="collapse">
+            <span class="badge add-wish font-weight-normal "><i class="fa fa-cart-plus"></i> Add To Shopping Cart</span>
+          </a>
+          <table class="table table-bordered table-hover">
+            <th colspan="2">Product Details</th>
+            <tr>
+              <td>Date:</td>
+              <td>1992</td>
+            </tr>
+            <tr>
+              <td>Medium:</td>
+              <td>Oile on canvas</td>
+            </tr>
+            <tr>
+              <td>Dimensions:</td>
+              <td>100 cm 80cm</td>
+            </tr>
+            <tr>
+              <td>Home:</td>
+              <td>Baltimore Art Museum</td>
+            </tr>
+            <tr>
+              <td>Genres:</td>
+              <td>Neoclassical</td>
+            </tr>
+            <tr>
+              <td>Subjets:</td>
+              <td>People, Family</td>
+            </tr>
+            <tr>
+              <td>Heat:</td>
+              <td>13</td>
+            </tr>
+          </table>
+        </div>
+        <div class="col-md-3 more-infor">
+          <ul class="popular-artist list-group">
+            <li class="list-group-item">流行艺术家</li>
+            <li class="list-group-item"><a href="#">cnasdio</a></li>
+            <li class="list-group-item"><a href="#">adfagg</a></li>
+            <li class="list-group-item"><a href="#">afgwerfga</a></li>
+            <li class="list-group-item"><a href="#">arggrvf</a></li>
+            <li class="list-group-item"><a href="#">vbcjdtyj</a></li>
+            <li class="list-group-item"><a href="#">ryukj</a></li>
+            <li class="list-group-item"><a href="#">wrunber</a></li>
+          </ul>
+          <ul class="popular-school list-group">
+            <li class="list-group-item">流行流派</li>
+            <li class="list-group-item"><a href="#">classic</a></li>
+            <li class="list-group-item"><a href="#">cubuim</a></li>
+            <li class="list-group-item"><a href="#">inpression</a></li>
+            <li class="list-group-item"><a href="#">banrosn</a></li>
+            <li class="list-group-item"><a href="#">nangsu</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+  <div id="new-todo" title="添加成功">
+  </div>
+  <footer>
+  </footer>
+  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>
