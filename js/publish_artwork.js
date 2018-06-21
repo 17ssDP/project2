@@ -1,4 +1,6 @@
 $('document').ready(function() {
+    search();
+    logout();
     $('#title').focusin(function () {
         $('#title_error').html("");
     }).focusout(function () {
@@ -25,6 +27,8 @@ $('document').ready(function() {
     }).focusout(function() {
         if($('#yearOfWork').val() == "") {
             $('#yearOfWork_error').html('请输入作品的年份');
+        }else if(!(Number($('#yearOfWork').val()) > 0) || (Number($('#yearOfWork').val()) % 1 != 0)) {
+            $('#yearOfWork_error').html('请输入正确的年份');
         }
     });
     $('#genre').focusin(function(){
@@ -149,3 +153,7 @@ $('document').ready(function() {
         }
     });
 });
+function isInt(number) {
+    let type =  /^-?([1-9]\d*\.\d*|0\.\d*[1-9]\d*|0?\.0+|0)$/;
+    return type.test(number);
+}

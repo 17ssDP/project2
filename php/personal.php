@@ -91,6 +91,7 @@ echo '
                           </thead>
                           <tbody>
                           <?php
+                          error_log($userID);
                           $query = "select * from artworks where ownerID = '".$userID."'";
                           $result = $db->query($query);
                           while($row = $result->fetch_assoc()) {

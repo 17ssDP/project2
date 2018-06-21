@@ -10,6 +10,12 @@ if(!havePermission()){
     require_once("entrance.php");
     exit;
 };
+if(isset($_GET['id'])) {
+    $artworkID = trim($_GET['id']);
+}else {
+    $artworkID = 6;
+}
+addFooter('modify_artwork.php?id='.$artworkID.'', '更改艺术品');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +39,6 @@ if(!havePermission()){
             <div class="card-body">
                 <?php
                 $db = db_connect();
-                $artworkID = trim($_GET['id']);
                 $query = "select * from artworks where artworkID = '".$artworkID."'";
                 $result = $db->query($query);
                 if($result->num_rows == 0) {
@@ -101,13 +106,13 @@ if(!havePermission()){
             <div class="card-body">
                 <input type="file" id="image">
                 <button type="button" id="release" data-action="modify">点击发布</button>
-                <p id="image_error">请选择上传文件</p>
             </div>
         </div>
     </div>
 </main>
 <?php getPromptBox() ?>
 <script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="../js/fns.js"></script>
 <script type="text/javascript" src="../js/modify_artwork.js"></script>
 <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

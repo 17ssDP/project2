@@ -4,6 +4,7 @@ $(document).ready(function() {
     let totalPage;
     let sortWay = "price";
     land();
+    publishArtworks();
     logout();
     search();
     $('#sortWay input').on('change', function() {
@@ -40,7 +41,6 @@ $(document).ready(function() {
         }
     });
     $('.searchButton').click(function() {
-        alert("fafdsf");
         // $.post('../php/search_result.php', {
         //     'searchImage': $('.searchImage').val(),
         //     'sortWay': "sortWay",
@@ -50,6 +50,7 @@ $(document).ready(function() {
         //     alert(result.html);
         //     $('.search-result').html(result['html']);
         // });
+        currentPage = 1;
         $.ajax({
             url: '../php/search_result.php',
             type: 'POST',
@@ -63,7 +64,9 @@ $(document).ready(function() {
         })
         .done(function(data) {
             $('.search-result').html(data.html);
+            totalPage = data.totalPage;
             $('.totalPage').html("总"+data.totalPage+"页");
+            $('.currentPage').html("第"+currentPage+"页");
         });
     });
     function search() {
@@ -82,6 +85,7 @@ $(document).ready(function() {
             $('.search-result').html(data.html);
             $('.totalPage').html("总"+data.totalPage+"页");
             totalPage = data.totalPage;
+            $('.currentPage').html("第"+currentPage+"页");
         });
     }
 });

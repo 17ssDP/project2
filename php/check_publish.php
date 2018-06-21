@@ -11,7 +11,7 @@ $timeCreated = date("Y-m-d H:i:s");
 //$userName = $_SESSION['userName'];
 //$userID = getID();
 $db = db_connect();
-$userID = 1;
+$userID = getID();
 $title = $_POST['title'];
 $artist = $_POST['artist'];
 $description = $_POST['description'];
@@ -79,12 +79,30 @@ if($action == "modify") {
     $stmt = $db->prepare($query);
     $stmt->bind_param("ssssdsddd",$artist, $imageFileName, $title, $description, $yearOfWork, $genre, $width, $height, $price);
     $stmt->execute();
-//    if($stmt->affected_rows == 0) {
-//        error_log("修改文件失败！");
-//        $success = false;
-//    }
+    if($stmt->affected_rows == 0) {
+        error_log("修改文件失败！");
+        $success = false;
+    }
     //如果用户修改了文件则保存新的文件
     error_log($imageFileName);
+    //发送站内信
+    $query = "select users.userID from users, carts where carts.artworkID = '".$artworkID."' and carts.userID = users.userID";
+    $result = $db->query($query);
+    if($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            $receiverID = $row['userID'];
+        }
+        $query = "select imageFileName from artworks where artworkID = '".$artworkID."'";
+        $result = $db->query($query);
+        while($row = $result->fetch_assoc()) {
+            $imageFileName = $row['imageFileName'];
+            error_log($imageFileName);
+        }
+        $message = "尊敬的用户："."您购物车中的".$title."的信息被卖家修改，请注意其中的变化";
+        $senderID = 1;
+        error_log('xiamiandexinxi');
+        error_log(sendMessage($message,$receiverID, $senderID));
+    }
 }
 $json_array = array('success'=>$success);
 $json = json_encode($json_array);

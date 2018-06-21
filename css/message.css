@@ -1,0 +1,13 @@
+.receiver_error, .message_error {
+    display: inline;
+    color: #f6a828;
+}
+.tab-content {
+    border: solid 2px #b7c2be;
+    height: 500px;
+}
+.sendSuccess{
+    display: inline;
+    margin-left: 5em;
+    color: red;
+}

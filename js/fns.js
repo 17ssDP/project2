@@ -29,8 +29,9 @@ function land() {
                 if(!result) {
                     $('#name-error').html('<p>用户不存在或密码错误</p>');
                 } else {
-                    $("#land").modal('hide');
-                    location.reload();
+                    $('.modal-title').html('登录成功!');
+                    $('.modal-title').addClass("login-succeed");
+                    setTimeout(function(){ location.reload();$("#land").modal('hide');},400);
                 }
             });
         }
@@ -115,6 +116,29 @@ function logout() {
         }, function (msg) {
             if(msg) {
                 window.location.href='entrance.php';
+            }
+        });
+    });
+}
+//搜索框的跳转
+function search() {
+    $('.searchButton').click(function() {
+        let searchInfor = $('.searchImage').val();
+        window.location.href= "../php/search.php?information=" + searchInfor;
+    });
+}
+//发布艺术品
+function publishArtworks() {
+    $('.publish').click(function(event) {
+        event.preventDefault();
+        $.post('haveLogin.php', {
+            'action': "check"
+        }, function(msg) {
+            if(msg) {
+                window.location.href = "publish_artwork.php";
+            }else {
+                $("#land").modal('show');
+                land();
             }
         });
     });

@@ -70,7 +70,7 @@ $db = db_connect();
         <!-- 轮播图片 -->
         <div class="carousel-inner">
             <?php
-            $query = "SELECT * FROM artworks ORDER BY view DESC limit 3";
+            $query = "SELECT * FROM artworks where orderID is NULL ORDER BY view DESC limit 3";
             $result = $db->query($query);
             $number = 1;
             while($row = $result->fetch_assoc()) {
@@ -138,7 +138,7 @@ $db = db_connect();
 </div>
 <section class="row">
     <?php
-    $query = "SELECT * FROM artworks ORDER BY timeReleased DESC limit 3";
+    $query = "SELECT * FROM artworks where orderID is NULL ORDER BY timeReleased DESC limit 3";
     $result = $db->query($query);
     while($artwork = $result->fetch_assoc()) {
         echo '

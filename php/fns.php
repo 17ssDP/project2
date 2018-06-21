@@ -18,6 +18,7 @@ function db_connect() {
     if(!$result) {
         throw new Exception('无法连接数据库服务器');
     } else {
+        mysqli_query($result, "set names utf8");
         return $result;
     }
 }
@@ -56,7 +57,7 @@ function getLandBox() {
 
             <!-- 模态框头部 -->
             <div class="modal-header title">
-                <h3 class="modal-title">欢迎登录Art Store</h3>
+                <h3 class="modal-title" id="login-title">欢迎登录Art Store</h3>
                 <h4 id="close" class="close" data-dismiss="modal"><i class="fa fa-close fa-2x"></i></h4>
             </div>
 
@@ -85,16 +86,18 @@ function get_html_header() {
     echo '
 <header class="container-fluid">
       <nav class="nav-one row">
-          <ul class="nav offset-md-8 row">
           ';
     if(havePermission()) {
         echo '
+        <ul class="nav offset-md-7 row">
               <li class="nav-item"><a class="nav-link" href="personal.php"><i class="fa fa-user"></i> '.$_SESSION["userName"].'</a></li>
               <li class="nav-item"><a class="nav-link" href="show_cart.php"><i class="fa fa-shopping-cart"></i> 购物车</a></li>
+              <li class="nav-item"><a class="nav-link" href="message.php"><i class="fa fa-envelope" aria-hidden="true"></i> 信箱</a></li>
               <li class="nav-item"><a class="nav-link" href="entrance.php" id="logout"><i class="fa fa-sign-out"></i> 登出</a></li>
               ';
     }else {
         echo '
+     <ul class="nav offset-md-10 row">
         <li class="nav-item"><a id="show" class="nav-link" href="#" data-toggle="modal" data-target="#land"><i class="fa fa-user"></i> 登录</a></li>
         <li class="nav-item"><a class="nav-link" href="../html/register.html"><i class="fa fa-sign-in"></i> 注册</a></li>
         ';
@@ -113,8 +116,8 @@ function get_html_header() {
       <ul class="nav">
         <li class="nav-item"><a class="nav-link" href="entrance.php">首页</a></li>
         <li class="nav-item"><a class="nav-link" href="search.php">搜素</a></li>
-        <li class="nav-item"><a class="nav-link" href="detail.html">详情</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">发布艺术品</a></li>
+        <li class="nav-item"><a class="nav-link" href="detail.php">详情</a></li>
+        <li class="nav-item"><a class="nav-link publish" href="publish_artwork.php">发布艺术品</a></li>
       </ul>
     </nav>
   </header>
@@ -182,4 +185,32 @@ function getPromptBox() {
             </div>
         </div>
     ';
+}
+//发送站内信
+function sendMessage($message,$receiverID,$senderID) {
+    $db = db_connect();
+    $success = true;
+    $message = $message;
+    $receiverID = $receiverID;
+    $isRead = 0;
+    //写入sendMessages
+    $query = "insert into sendmessages (messageID, senderID, receiverID, message, sendTime) values (NULL, ?, ?, ?, NULL)";
+    $result = $db->prepare($query);
+    $result->bind_param('dds',$senderID,$receiverID, $message);
+    $result->execute();
+    if($result->affected_rows == 0) {
+        $success = false;
+        error_log("插入sendMessages失败！");
+       }
+//    //写入receiveMessages
+//    $query = "insert into receiveMessages values ('NULL', '".$userID."', '".$receiverID."', '".$message."', 'NULL')";
+    $query = "insert into receiveMessages (messageID, senderID, receiverID, message, receiveTime, isRead) values (NULL, ?, ?, ?, NULL, ?)";
+    $result = $db->prepare($query);
+    $result->bind_param('ddsd',$senderID, $receiverID, $message, $isRead);
+    $result->execute();
+    if($result->affected_rows == 0) {
+        $success = false;
+        error_log("插入receiveMessages失败！");
+    }
+    return $success;
 }

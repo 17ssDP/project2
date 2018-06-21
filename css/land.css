@@ -91,3 +91,6 @@ font-weight: bold;
 display: block;
 margin-left: 200px;
 }
+.login-succeed{
+  color: red;
+}

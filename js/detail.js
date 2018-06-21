@@ -1,4 +1,6 @@
 $(document).ready(function() {
+    search();
+    publishArtworks();
     $('#addCart').click(function() {
         let that = this;
         $.post('haveLogin.php', {

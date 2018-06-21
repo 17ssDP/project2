@@ -161,3 +161,10 @@ ul[class*="popular"] li a {
 .modal-header h4 i {
   font-size: 25px;
 }
+.author {
+  color: #a7d38f;
+}
+.author:hover{
+  color: #baf09b;
+  text-decoration: none;
+}

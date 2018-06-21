@@ -1,6 +1,10 @@
 <?php
 require_once("fns.php");
-$artworkID = trim($_GET['id']);
+if(isset($_GET['id'])) {
+    $artworkID = trim($_GET['id']);
+} else {
+    $artworkID = 6;
+}
 addFooter('detail.php?id='.$artworkID.'', '详情');
 ?>
 <!DOCTYPE html>
@@ -46,7 +50,7 @@ addFooter('detail.php?id='.$artworkID.'', '详情');
         <div class="good-details container-fluid">
             <div class="row">
                 <h2 class="col-md-12" id="title">'.$title.'</h2>
-                <p class="col-md-12">By <a href="search.html" class="author">'.$artist.'</a></p>
+                <p class="col-md-12">By <a href="search.php?information='.$artist.'" class="author">'.$artist.'</a></p>
             </div>
             <div class="row">
                 <div class="col-md-3 good" id="gallery">

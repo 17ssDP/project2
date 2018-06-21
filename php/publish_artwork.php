@@ -10,7 +10,7 @@ if(!havePermission()){
     require_once("entrance.php");
     exit;
 };
-addFooter('publish.php', '发布艺术品');
+addFooter('publish_artwork.php', '发布艺术品');
 //$artworkID = trim($_GET['id']);
 ?>
 <!DOCTYPE html>
@@ -92,6 +92,7 @@ addFooter('publish.php', '发布艺术品');
 </main>
 <?php getPromptBox() ?>
 <script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="../js/fns.js"></script>
 <script type="text/javascript" src="../js/publish_artwork.js"></script>
 <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

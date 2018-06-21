@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    search();
     let balance = $('#balance').html();
     $('#money').focus(function() {
         $('#error').html("");

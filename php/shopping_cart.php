@@ -6,17 +6,9 @@
  * Time: 16:54
  */
 require_once('fns.php');
-//session_start();
-//$userName = $_SESSION['user'];
-$userName = "master";
+$userID = getID();
 $db = db_connect();
-//$artworkID = 26;
 $action = $_POST['action'];
-$query = "select userID from users where name = '".$userName."'";
-$result = $db->query($query);
-while($row = $result->fetch_assoc()) {
-    $userID = $row['userID'];
-}
 if($action == "add") {
     $artworkID = $_POST['artworkID'];
     $query = "select * from carts where userID = '".$userID."' and artworkID = '".$artworkID."'";
@@ -49,6 +41,16 @@ if($action == "add") {
         echo true;
     }
 } else if($action == "payment") {
+    //检查是否被买走
+//    $soldArtworks = array();
+//    $query = "select artwork.orderID from carts, artworks where carts.userID = '".$userID."' and carts.artworkID = artworks.artworkID";
+//    $result = $db->query($query);
+//    while($row = $result->fetch_assoc()) {
+//        if($row['orderID'] != NULL) {
+//
+//        }
+//   }
+    //检查是否被删除
     //检查余额是否足够
     $query = "select artworks.price from carts, artworks 
                   where carts.userID = '".$userID."' and carts.artworkID = artworks.artworkID";
@@ -82,6 +84,45 @@ if($action == "add") {
     } else {
         echo false;
     }
+}else if($action == "getShoppingCart") {
+    $html = '';
+    $totalMoney = 0;
+    $query = "select artworks.artworkID, artworks.title, artworks.artist, artworks.description, artworks.imageFileName, artworks.price, artworks.orderID from carts, artworks 
+                  where carts.userID = '".$userID."' and carts.artworkID = artworks.artworkID";
+    $result = $db->query($query);
+    while($artwork = $result->fetch_assoc()) {
+        if($artwork["orderID"] == NULL) {
+            $state = "未售出";
+        }else {
+            $state = "已售出";
+        }
+        $html .= '
+            <div class="good-one row">
+                <div class="img col-md-2">
+                    <img src="../resources/img/'.$artwork["imageFileName"].'" alt="good">
+                </div>
+                <div class="col-md-9">
+                    <div class="details">
+                        <h3 class="name">'.$artwork["title"].'</h3>
+                        <h4>By '.$artwork["artist"].'</h4>
+                        <p class="author">'.mb_substr($artwork["description"],0,300,"UTF8").'...</p>
+                        <p><i class="fa fa-star"></i>价格：$<span>'.$artwork["price"].'</span>&nbsp;&nbsp;&nbsp;&nbsp;状态：<span class="state">'.$state.'</span></p>
+                    </div>
+                    <div>
+                        <button class="detail" onclick="javascript:window.location.href=\'detail.php?id='.$artwork["artworkID"].'\'"><i class="fa fa-share-square-o" aria-hidden="true"></i>  详情</button>
+                        <button class="delete" data-artworkID="'.$artwork["artworkID"].'"><i class="fa fa-sign-out"></i>移出购物车</button>
+                    </div>
+                </div>
+            </div>
+            ';
+        $totalMoney += $artwork["price"];
+    }
+    $html .= '
+        <div class="pay">
+            <a id="pay-bt"><i class="fa fa-mail-forward">结款:$</i> <span>'.$totalMoney.'</span></a>
+        </div>
+        ';
+    echo json_encode(['html'=>$html]);
 }
 function addOrderToArtworks() {
     global $userID;
@@ -126,9 +167,13 @@ function addSellerBalance() {
     }
 }
 function clearCart() {
-    global $userID;
+    $userID = getID();
     global $db;
     $query = "delete from carts where userID = '".$userID."'";
-    $db->query($query);
+    $result = $db->query($query);
+    if($result) {
+        error_log('清空成功');
+        error_log($result);
+    }
 }
 ?>

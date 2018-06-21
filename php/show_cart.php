@@ -18,9 +18,6 @@ addFooter('show_cart.php', '购物车');
     <link rel="stylesheet" href="../css/shopping-cart.css">
     <link rel="stylesheet" href="../css/jquery-ui.min.css">
     <link rel="stylesheet" href="../css/head.css">
-    <script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
-    <script type="text/javascript" src="../js/fns.js"></script>
-    <script type="text/javascript" src="../js/shopping-cart.js"></script>
 </head>
 
 <body>
@@ -32,62 +29,45 @@ addFooter('show_cart.php', '购物车');
     </div>
     <section class="container">
         <?php
-        $db = db_connect();
-        $userID = getID();
-        $totalMoney = 0;
-        $query = "select artworks.artworkID, artworks.title, artworks.artist, artworks.description, artworks.imageFileName, artworks.price from carts, artworks 
-                  where carts.userID = '".$userID."' and carts.artworkID = artworks.artworkID";
-        $result = $db->query($query);
-        while($artwork = $result->fetch_assoc()) {
-            echo '
-            <div class="good-one row">
-                <div class="img col-md-2">
-                    <img src="../resources/img/'.$artwork["imageFileName"].'" alt="good">
-                </div>
-                <div class="col-md-9">
-                    <div class="details">
-                        <h3 class="name">'.$artwork["title"].'</h3>
-                        <h4>By '.$artwork["artist"].'</h4>
-                        <p class="author">'.mb_substr($artwork["description"],0,300,"UTF8").'...</p>
-                        <p><i class="fa fa-star"></i>价格：$<span>'.$artwork["price"].'</span></p>
-                    </div>
-                    <div>
-                        <button class="detail" onclick="javascript:window.location.href=\'detail.php?id='.$artwork["artworkID"].'\'"><i class="fa fa-share-square-o" aria-hidden="true"></i>  详情</button>
-                        <button class="delete" data-artworkID="'.$artwork["artworkID"].'"><i class="fa fa-sign-out"></i>移出购物车</button>
-                    </div>
-                </div>
-            </div>
-            ';
-            $totalMoney += $artwork["price"];
-        }
-        echo '
-        <div class="pay">
-            <a id="pay-bt"><i class="fa fa-mail-forward">结款:$</i> <span>'.$totalMoney.'</span></a>
-        </div>
-        ';
-?>
-        <!-- 模态框 -->
-        <div class="modal fade" id="information">
-            <div class="modal-dialog modal-sm">
-                <div class="modal-content">
-
-                    <!-- 模态框头部 -->
-                    <div class="modal-header">
-                        <h3 class="modal-title">Art Store</h3>
-                        <h4 id="close" class="close" data-dismiss="modal"><i class="fa fa-close fa-2x"></i></h4>
-                    </div>
-
-                    <!-- 模态框主体 -->
-                    <div class="modal-body"></div>
-
-                    <!-- 模态框底部 -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
-                    </div>
-
-                </div>
-            </div>
-        </div>
+//        $db = db_connect();
+//        $userID = getID();
+//        $totalMoney = 0;
+//        $query = "select artworks.artworkID, artworks.title, artworks.artist, artworks.description, artworks.imageFileName, artworks.price, artworks.orderID from carts, artworks
+//                  where carts.userID = '".$userID."' and carts.artworkID = artworks.artworkID";
+//        $result = $db->query($query);
+//        while($artwork = $result->fetch_assoc()) {
+//            if($artwork["orderID"] == NULL) {
+//                $state = "未售出";
+//            }else {
+//                $state = "已售出";
+//            }
+//            echo '
+//            <div class="good-one row">
+//                <div class="img col-md-2">
+//                    <img src="../resources/img/'.$artwork["imageFileName"].'" alt="good">
+//                </div>
+//                <div class="col-md-9">
+//                    <div class="details">
+//                        <h3 class="name">'.$artwork["title"].'</h3>
+//                        <h4>By '.$artwork["artist"].'</h4>
+//                        <p class="author">'.mb_substr($artwork["description"],0,300,"UTF8").'...</p>
+//                        <p><i class="fa fa-star"></i>价格：$<span>'.$artwork["price"].'</span>&nbsp;&nbsp;&nbsp;&nbsp;<span> 状态：'.$state.'</span></p>
+//                    </div>
+//                    <div>
+//                        <button class="detail" onclick="javascript:window.location.href=\'detail.php?id='.$artwork["artworkID"].'\'"><i class="fa fa-share-square-o" aria-hidden="true"></i>  详情</button>
+//                        <button class="delete" data-artworkID="'.$artwork["artworkID"].'"><i class="fa fa-sign-out"></i>移出购物车</button>
+//                    </div>
+//                </div>
+//            </div>
+//            ';
+//            $totalMoney += $artwork["price"];
+//        }
+//        echo '
+//        <div class="pay">
+//            <a id="pay-bt"><i class="fa fa-mail-forward">结款:$</i> <span>'.$totalMoney.'</span></a>
+//        </div>
+//        ';
+        ?>
     </section>
 </main>
 <footer>
@@ -106,10 +86,31 @@ addFooter('show_cart.php', '购物车');
 <!--        <li><a href="#"><i class="fa fa-chevron-right"></i></a></li>-->
 <!--    </ul>-->
 </footer>
-<div id="delete" title="删除成功">
+<!-- 模态框 -->
+<div class="modal fade" id="information">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+
+            <!-- 模态框头部 -->
+            <div class="modal-header">
+                <h3 class="modal-title">Art Store</h3>
+                <h4 id="close" class="close" data-dismiss="modal"><i class="fa fa-close fa-2x"></i></h4>
+            </div>
+
+            <!-- 模态框主体 -->
+            <div class="modal-body"></div>
+
+            <!-- 模态框底部 -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+            </div>
+
+        </div>
+    </div>
 </div>
-<div id="pay" title="付款成功">
-</div>
+<script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="../js/fns.js"></script>
+<script type="text/javascript" src="../js/shopping-cart.js"></script>
 <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
